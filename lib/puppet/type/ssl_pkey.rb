@@ -69,4 +69,8 @@ Puppet::Type.newtype(:ssl_pkey) do
       end
     end
   end
+
+  autorequire(:file) do
+    Pathname.new(self[:path]).parent.to_s
+  end
 end
